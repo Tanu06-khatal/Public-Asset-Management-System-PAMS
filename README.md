@@ -10,6 +10,7 @@ A comprehensive web-based Public Asset Management System built with Spring Boot,
 ## 🚀 Features
 
 ### Core Functionality
+
 - **User Registration & Authentication**: Secure login system with role-based access
 - **Complaint Management**: Citizens can report issues with public assets
 - **Admin Dashboard**: Comprehensive admin panel for managing complaints and users
@@ -20,6 +21,7 @@ A comprehensive web-based Public Asset Management System built with Spring Boot,
 - **File Upload**: Support for complaint images and documents
 
 ### User Roles
+
 - **Citizens (Users)**: Register complaints, track status, view history
 - **Administrators**: Manage complaints, assign technicians, oversee operations
 
@@ -44,12 +46,14 @@ Before running this application, make sure you have the following installed:
 ## 🚀 Quick Start
 
 ### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/your-username/pams.git
 cd pams
 ```
 
 ### 2. Database Setup
+
 Create a MySQL database and update the connection details:
 
 ```sql
@@ -58,6 +62,7 @@ CREATE DATABASE pams_db;
 ```
 
 Update `src/main/resources/application.properties`:
+
 ```properties
 # MySQL Configuration
 spring.datasource.url=jdbc:mysql://localhost:3306/pams_db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
@@ -66,7 +71,9 @@ spring.datasource.password=your_mysql_password
 ```
 
 ### 3. Email Configuration (Optional)
+
 For email notifications, configure SMTP in `application.properties`:
+
 ```properties
 # Email Configuration (SMTP)
 spring.mail.host=smtp.gmail.com
@@ -78,6 +85,7 @@ spring.mail.properties.mail.smtp.starttls.enable=true
 ```
 
 ### 4. Run the Application
+
 ```bash
 # Using Maven Wrapper (Windows)
 mvnw.cmd spring-boot:run
@@ -90,6 +98,7 @@ mvn spring-boot:run
 ```
 
 ### 5. Access the Application
+
 Open your browser and navigate to: **http://localhost:8083**
 
 ## 📁 Project Structure
@@ -136,6 +145,7 @@ pams/
 ## 🔧 Configuration
 
 ### Application Properties
+
 Key configuration options in `application.properties`:
 
 ```properties
@@ -174,6 +184,7 @@ Database schema is automatically created from `schema.sql` on startup.
 ## 🌐 API Endpoints
 
 ### Authentication
+
 - `GET /` - Home page
 - `GET /login` - Login form
 - `POST /login` - Process login
@@ -182,12 +193,14 @@ Database schema is automatically created from `schema.sql` on startup.
 - `GET /logout` - Logout
 
 ### User Dashboard
+
 - `GET /dashboard` - User dashboard
 - `GET /raise-complaint` - New complaint form
 - `POST /raise-complaint` - Submit complaint
 - `GET /my-complaints` - User's complaints
 
 ### Admin Dashboard
+
 - `GET /admin/dashboard` - Admin overview
 - `GET /admin/complaints` - Manage complaints
 - `GET /admin/assets` - Manage assets
@@ -197,9 +210,11 @@ Database schema is automatically created from `schema.sql` on startup.
 ## 🚀 Deployment
 
 ### Option 1: Local Deployment
+
 Follow the Quick Start guide above.
 
 ### Option 2: Docker Deployment
+
 ```dockerfile
 # Dockerfile
 FROM openjdk:17-jdk-slim
@@ -210,6 +225,7 @@ ENTRYPOINT ["java","-jar","app.jar"]
 ```
 
 ### Option 3: Cloud Deployment (Railway)
+
 1. Connect your GitHub repository to Railway
 2. Set environment variables:
    - `DATABASE_URL` (Railway provides this)
@@ -217,6 +233,7 @@ ENTRYPOINT ["java","-jar","app.jar"]
 3. Deploy automatically on push
 
 ### Option 4: Heroku Deployment
+
 1. Create `Procfile`:
    ```
    web: java -jar target/pams-0.0.1-SNAPSHOT.jar
@@ -227,6 +244,7 @@ ENTRYPOINT ["java","-jar","app.jar"]
 ## 🧪 Testing
 
 ### Manual Testing
+
 1. Start the application
 2. Register a new user account
 3. Login and create a complaint
@@ -234,6 +252,7 @@ ENTRYPOINT ["java","-jar","app.jar"]
 5. Assign technician and update complaint status
 
 ### Sample Test Data
+
 The application includes sample data in `data.sql` for testing.
 
 ## 🤝 Contributing
