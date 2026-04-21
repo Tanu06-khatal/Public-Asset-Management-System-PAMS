@@ -1,0 +1,41 @@
+services:
+  - type: web
+    name: pams
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfile: ./Dockerfile
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: render
+      - key: PORT
+        value: 8080
+      - key: SPRING_MAIL_HOST
+        value: smtp.gmail.com
+      - key: SPRING_MAIL_PORT
+        value: 587
+      - key: SPRING_MAIL_USERNAME
+        fromEnv: MAIL_USERNAME
+      - key: SPRING_MAIL_PASSWORD
+        fromEnv: MAIL_PASSWORD
+
+databases:
+  - name: pams-db
+    plan: free
+    region: singapore
+
+  - name: pams
+    depends_on: pams-db
+    envVars:
+      - fromDatabase:
+          name: pams-db
+          property: connectionString
+        name: SPRING_DATASOURCE_URL
+      - fromDatabase:
+          name: pams-db
+          property: user
+        name: SPRING_DATASOURCE_USERNAME
+      - fromDatabase:
+          name: pams-db
+          property: password
+        name: SPRING_DATASOURCE_PASSWORD
